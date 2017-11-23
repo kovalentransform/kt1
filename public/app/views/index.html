@@ -1,0 +1,106 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <!-- Main Angular Files -->
+    <script src="assets/js/angular.min.js"></script>
+    <script src="assets/js/angular-route.js"></script>
+    <script src="assets/js/angular-animate.js"></script>
+
+    <!-- Angular Config/Routes -->
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+    <script src="assets/js/angular-animate.js"></script>
+
+    <!-- Angular Controllers -->
+    <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/mainCtrl.js"></script>
+    
+    <!-- Angular Services -->
+    <script src="app/services/userServices.js"></script>
+    <script src="app/services/authServices.js"></script>  
+
+    <title>Kovalent Transform AB</title>
+
+  </head>
+
+  <body ng-app="userApp" ng-controller="mainCtrl as main" ng-show="main.loadMe" ng-cloak>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a ng-show="!main.isLoggedIn" class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item"> 
+            <a ng-show="!main.isLoggedIn" class="nav-link" href="/register">Register</a>
+          </li>
+          <li class="nav-item"> 
+            <a ng-show="main.isLoggedIn" class="nav-link" href="#" ng-click="main.logout();">Logout</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a ng-show="main.isLoggedIn" class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Social</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a ng-show="main.isLoggedIn" class="dropdown-item" href="www.facebook.com">Facebook</a>
+              <a ng-show="main.isLoggedIn" class="dropdown-item" href="www.twitter.com">Twitter</a>
+              <a ng-show="main.isLoggedIn" class="dropdown-item" href="https://www.instagram.com/accounts/login/">Instagram</a>
+            </div>
+          </li>
+          <li class="nav-item"> 
+            <a ng-show="main.isLoggedIn" class="nav-link" href="/profile">Welcome {{ main.username }}</a>
+          </li>
+          
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <main role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-5">Welcome to Kovalent's world</h1>
+          <p>Here we practice bonding. The same bonding which we see in covalent bonds which has inspired us to give this name to our startup.</p>
+          <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        </div>
+      </div>
+
+      <div ng-view></div>
+      <p></p>
+      
+
+    </main>
+
+    <footer class="container">
+      <p>&copy; Somdeb Majumdar Nov 2017</p>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery-3.2.1.js"></script>
+    <script src="assets/js/bootstrap.bundle.js"></script>
+  </body>
+</html>
