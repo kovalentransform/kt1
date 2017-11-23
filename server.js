@@ -17,7 +17,8 @@ app.use(bodyParser.urlencoded({ extended: true })); // For parsing application/x
 app.use(express.static(__dirname + '/public')); // Allow front end to access public folder
 app.use('/api', appRoutes); // Assign name to end points (e.g., '/api/management/', '/api/users' ,etc. )
  
-mongoose.connect('mongodb://localhost:27017/BWA', { useMongoClient: true }, function(err){
+//mongoose.connect('mongodb://localhost:27017/BWA', { useMongoClient: true }, function(err){
+    mongoose.connect('mongodb://aarav:aarav@ds119736.mlab.com:19736/bwa', { useMongoClient: true }, function(err){        
     if (err) {console.log('error ='+err);}
     else {console.log('I am up and running buddy...');}
 });
